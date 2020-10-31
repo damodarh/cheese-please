@@ -1,0 +1,46 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-flow"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "@babel/plugin-transform-regenerator",
+        "@babel/plugin-syntax-dynamic-import",
+        [
+          "@babel/plugin-transform-runtime",
+          {
+            "regenerator": true
+          }
+        ],
+        [
+          "module-resolver",
+          {
+            "root": [
+              "./app"
+            ],
+            "alias": {
+              "Actions": "./app/src/actions",
+              "Assets": "./app/src/assets",
+              "Components": "./dims-common-ui/components/",
+              "Containers": "./app/src/containers",
+              "Helpers": "./helpers",
+              "Selectors": "./app/src/selectors",
+              "Utils": "./app/src/utils",
+              "Apis": "./app/src/api"
+            }
+          }
+        ],
+        "@babel/plugin-proposal-class-properties"
+      ]
+    }
+  }
+}
